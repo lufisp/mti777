@@ -1,5 +1,5 @@
-package org.etsmtl.mti777.dao;
 
+package org.etsmtl.mti777.dao;
 import java.util.List;
 
 import org.etsmtl.mti777.model.ItemMenu;
