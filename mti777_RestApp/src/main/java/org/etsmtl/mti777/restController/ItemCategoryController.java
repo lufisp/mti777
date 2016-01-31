@@ -1,13 +1,11 @@
 package org.etsmtl.mti777.restController;
 
-import java.io.IOException;
 import java.util.List;
 
 import org.etsmtl.mti777.dao.ItemCategoryDao;
-import org.etsmtl.mti777.dao.TableDao;
 import org.etsmtl.mti777.model.ItemCategory;
-import org.etsmtl.mti777.model.TableRoom;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,10 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
+@CrossOrigin
 @RestController
 public class ItemCategoryController {
 	@Autowired

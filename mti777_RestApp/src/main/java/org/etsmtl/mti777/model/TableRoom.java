@@ -16,6 +16,8 @@ public class TableRoom {
 	private String name;
 	
 	private Boolean availableFlag;
+	
+	private int places;
 
 	public Long getIdtable() {
 		return idtable;
@@ -39,6 +41,14 @@ public class TableRoom {
 
 	public void setAvailableFlag(Boolean availableFlag) {
 		this.availableFlag = availableFlag;
+	}
+
+	public int getPlaces() {
+		return places;
+	}
+
+	public void setPlaces(int places) {
+		this.places = places;
 	}
 
 	
