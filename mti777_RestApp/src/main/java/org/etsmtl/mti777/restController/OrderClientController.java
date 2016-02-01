@@ -24,6 +24,11 @@ public class OrderClientController {
 		return orderClientDao.list();
 	}
 	
+	@RequestMapping(path = "/orderClient/table/{tableId}", method = RequestMethod.GET)
+	public @ResponseBody List<OrderClient> listOrderByTable(@PathVariable String tableId) {
+		return orderClientDao.listOrderByTable(Long.valueOf(tableId));
+	}
+	
 	
 	@RequestMapping(path = "/orderClient/", method = RequestMethod.POST)
 	public @ResponseBody OrderClient create(@RequestBody OrderClient orderClient) {		
