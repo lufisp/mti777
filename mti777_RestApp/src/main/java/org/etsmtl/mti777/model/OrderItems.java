@@ -22,6 +22,18 @@ public class OrderItems {
 	@ManyToOne
 	@JoinColumn(name = "idOrder")
 	private OrderClient orderClient;
+	
+	private int quantity;
+	
+	
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
 
 	public Long getIdorderItems() {
 		return idorderItems;

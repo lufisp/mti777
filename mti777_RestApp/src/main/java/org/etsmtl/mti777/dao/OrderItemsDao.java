@@ -33,4 +33,9 @@ public class OrderItemsDao {
 		return orderItems;
 	}
 
+	public List<OrderItems> listItemsByOrder(Long orderClientId) {
+		// TODO Auto-generated method stub
+		return orderItemsRepository.listItemsByOrder(orderClientId);
+	}
+
 }
