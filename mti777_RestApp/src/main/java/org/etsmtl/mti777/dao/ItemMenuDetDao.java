@@ -33,4 +33,9 @@ public class ItemMenuDetDao {
 		return itemMenuDet;
 	}
 
+	public List<ItemMenuDet> listLastUpdated() {
+		List<ItemMenuDet> myList = iMenuDetRepository.listLastUpdated();
+		return myList;
+	}
+
 }

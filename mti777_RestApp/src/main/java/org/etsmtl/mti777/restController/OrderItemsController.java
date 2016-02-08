@@ -44,6 +44,12 @@ public class OrderItemsController {
 	}
 	
 	
+	@RequestMapping(path = "/orderItems/{orderClientId}/{orderMenuDetId}", method = RequestMethod.POST)
+	public @ResponseBody OrderItems createItem(@RequestBody OrderItems orderItems,@PathVariable String orderClientId, @PathVariable String orderMenuDetId) {		
+		return orderItemsDao.createItem(orderClientId, orderMenuDetId);
+
+	}	
+	
 	@RequestMapping(path = "/orderItems/", method = RequestMethod.POST)
 	public @ResponseBody OrderItems create(@RequestBody OrderItems orderItems) {		
 		return orderItemsDao.create(orderItems);
