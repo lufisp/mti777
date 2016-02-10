@@ -5,6 +5,7 @@ import java.util.List;
 import org.etsmtl.mti777.dao.OrderClientDao;
 import org.etsmtl.mti777.model.OrderClient;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,10 +25,20 @@ public class OrderClientController {
 		return orderClientDao.list();
 	}
 	
+	@RequestMapping(path = "/orderClient/getTotal/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public @ResponseBody String getTotal(@PathVariable String id) {
+		String json = "";
+		json += "{\"value\":\"";
+		json += orderClientDao.getTotal(Long.valueOf(id));
+		json += "\"}";
+		return json;				
+	}
+	
 	@RequestMapping(path = "/orderClient/table/{tableId}", method = RequestMethod.GET)
 	public @ResponseBody List<OrderClient> listOrderByTable(@PathVariable String tableId) {
 		return orderClientDao.listOrderByTable(Long.valueOf(tableId));
 	}
+	
 	
 	
 	@RequestMapping(path = "/orderClient/", method = RequestMethod.POST)

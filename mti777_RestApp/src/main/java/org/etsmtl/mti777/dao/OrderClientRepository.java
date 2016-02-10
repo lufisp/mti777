@@ -11,6 +11,10 @@ public interface OrderClientRepository extends BaseRepository<OrderClient,Long> 
 
 	@Query("SELECT orderCli FROM OrderClient orderCli WHERE orderCli.tableRoom.idtable = :tableId")
 	List<OrderClient> listOrderByTable(@Param("tableId") Long tableId);
+
+	@Query(   " SELECT SUM(orderItems.quantity * orderItems.itemMenuDet.prix)"
+			+ " FROM OrderItems orderItems WHERE orderItems.orderClient.idOrder = :id")
+	String getTotal(@Param("id") Long id);
 		
 
 }

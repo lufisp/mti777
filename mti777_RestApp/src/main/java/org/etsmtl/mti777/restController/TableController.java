@@ -5,6 +5,7 @@ import java.util.List;
 import org.etsmtl.mti777.dao.TableDao;
 import org.etsmtl.mti777.model.TableRoom;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,6 +23,16 @@ public class TableController {
 	@RequestMapping(path = "/table/", method = RequestMethod.GET)
 	public @ResponseBody List<TableRoom> list() {
 		return tableDao.list();
+	}
+	
+	@RequestMapping(path = "/table/getTotal/{id}", method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
+	public @ResponseBody String getTotal(@PathVariable String id) {
+		String json = "";
+		json += "{\"value\":\"";
+		json += tableDao.getTotal(Long.valueOf(id));
+		json += "\"}";
+		return json;
+				
 	}
 
 	@RequestMapping(path = "/table/{name}", method = RequestMethod.POST)

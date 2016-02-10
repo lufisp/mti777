@@ -38,4 +38,8 @@ public class OrderClientDao {
 		return myList;
 	}
 
+	public String getTotal(Long id) {
+		return orderClientRepository.getTotal(id);
+	}
+
 }

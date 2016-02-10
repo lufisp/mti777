@@ -9,7 +9,13 @@ import org.springframework.data.jpa.repository.Query;
 
 public interface ItemMenuDetRepository extends BaseRepository<ItemMenuDet,Long> {
 
-	@Query(value = "select * from mti777Bd.itemMenuDet where (iditemMenu, version, creationDate) in (select iditemMenu,version,max(creationDate) from mti777Bd.itemMenuDet group by iditemMenu, version)",nativeQuery = true)
+	@Query(value = "select * "
+			+ "from mti777Bd.itemMenuDet "
+			+ "where (iditemMenu, version, creationDate) in ("
+			+ " select iditemMenu,version,max(creationDate) "
+			+ " from mti777Bd.itemMenuDet "
+			+ " group by iditemMenu, version"
+			+ ")",nativeQuery = true)
 	List<ItemMenuDet> listLastUpdated();
 		
 

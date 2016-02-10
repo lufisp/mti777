@@ -38,4 +38,8 @@ public class TableDao {
 		return table;
 	}
 
+	public String getTotal(Long tableId) {
+		return tableRepository.getTotal(tableId);
+	}
+
 }
