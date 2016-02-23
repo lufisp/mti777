@@ -38,9 +38,9 @@ public class TableController {
 	@RequestMapping(path = "/table/{name}", method = RequestMethod.POST)
 	public @ResponseBody TableRoom create(@PathVariable String name) {
 		return tableDao.create(name);
-
 	}
-
+	
+	
 	@RequestMapping(path = "/table/{id}", method = RequestMethod.DELETE)
 	public void delete(@PathVariable String id) {
 		tableDao.delete(Long.valueOf(id));
@@ -50,6 +50,11 @@ public class TableController {
 	@RequestMapping(value = "/table/", method = RequestMethod.PUT)
 	public void update(@RequestBody TableRoom table) {
 		tableDao.save(table);
+	}
+	
+	@RequestMapping(path = "/table/{tableId}", method = RequestMethod.PUT)
+	public @ResponseBody TableRoom create(@RequestBody TableRoom table) {
+		return tableDao.create(table);
 	}
 
 }

@@ -33,4 +33,8 @@ public class PaymentDao {
 		return payment;
 	}
 
+	public List<Payment> listPaymentByOrderClient(Long orderId) {
+		return paymentRepository.listPaymentByOrderClient(orderId);
+	}
+
 }

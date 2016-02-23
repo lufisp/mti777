@@ -21,8 +21,12 @@ public class TableDao {
 		table.setAvailableFlag(false);
 		tableRepository.save(table);
 		return table;
-
 	}
+	
+	public TableRoom create(TableRoom table) {
+		return tableRepository.save(table);
+	}
+
 
 	public List<TableRoom> list() {
 		List<TableRoom> myList = tableRepository.findAll();
@@ -41,5 +45,7 @@ public class TableDao {
 	public String getTotal(Long tableId) {
 		return tableRepository.getTotal(tableId);
 	}
+
+	
 
 }

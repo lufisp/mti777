@@ -3,6 +3,7 @@ package org.etsmtl.mti777.restController;
 import java.util.List;
 
 import org.etsmtl.mti777.dao.PaymentDao;
+import org.etsmtl.mti777.model.OrderClient;
 import org.etsmtl.mti777.model.Payment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -22,6 +23,11 @@ public class PaymentController {
 	@RequestMapping(path = "/payment/", method = RequestMethod.GET)
 	public @ResponseBody List<Payment> list() {
 		return paymentDao.list();
+	}
+	
+	@RequestMapping(path = "/payment/orderClient/{orderId}", method = RequestMethod.GET)
+	public @ResponseBody List<Payment> listOrderByOrderClient(@PathVariable String orderId) {
+		return paymentDao.listPaymentByOrderClient(Long.valueOf(orderId));
 	}
 	
 	
