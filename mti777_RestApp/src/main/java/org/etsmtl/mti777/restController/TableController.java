@@ -25,11 +25,11 @@ public class TableController {
 		return tableDao.list();
 	}
 	
-	@RequestMapping(path = "/table/getTotal/{id}", method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody String getTotal(@PathVariable String id) {
+	@RequestMapping(path = "/table/getTotal/{id}/shiftId/{shiftId}", method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
+	public @ResponseBody String getTotal(@PathVariable String id, @PathVariable String shiftId) {
 		String json = "";
 		json += "{\"value\":\"";
-		json += tableDao.getTotal(Long.valueOf(id));
+		json += tableDao.getTotal(Long.valueOf(id), Long.valueOf(shiftId));
 		json += "\"}";
 		return json;
 				
@@ -41,20 +41,23 @@ public class TableController {
 	}
 	
 	
+	@RequestMapping(path = "/table/", method = RequestMethod.POST)
+	public @ResponseBody TableRoom create(@RequestBody TableRoom table) {
+		return tableDao.create(table);
+	}
+	
+	
 	@RequestMapping(path = "/table/{id}", method = RequestMethod.DELETE)
 	public void delete(@PathVariable String id) {
 		tableDao.delete(Long.valueOf(id));
 
 	}
 
-	@RequestMapping(value = "/table/", method = RequestMethod.PUT)
+	@RequestMapping(value = "/table/{id}", method = RequestMethod.PUT)
 	public void update(@RequestBody TableRoom table) {
 		tableDao.save(table);
 	}
 	
-	@RequestMapping(path = "/table/{tableId}", method = RequestMethod.PUT)
-	public @ResponseBody TableRoom create(@RequestBody TableRoom table) {
-		return tableDao.create(table);
-	}
-
+		
+	
 }

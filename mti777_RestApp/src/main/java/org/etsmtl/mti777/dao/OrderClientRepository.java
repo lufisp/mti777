@@ -9,8 +9,8 @@ import org.springframework.data.repository.query.Param;
 
 public interface OrderClientRepository extends BaseRepository<OrderClient,Long> {
 
-	@Query("SELECT orderCli FROM OrderClient orderCli WHERE orderCli.tableRoom.idtable = :tableId")
-	List<OrderClient> listOrderByTable(@Param("tableId") Long tableId);
+	@Query("SELECT orderCli FROM OrderClient orderCli WHERE orderCli.tableRoom.idtable = :tableId and orderCli.shift.idshift = :shiftId")
+	List<OrderClient> listOrderByTable(@Param("tableId") Long tableId, @Param("shiftId") Long shiftId);
 
 	@Query(   " SELECT SUM(orderItems.quantity * orderItems.itemMenuDet.prix)"
 			+ " FROM OrderItems orderItems WHERE orderItems.orderClient.idOrder = :id")

@@ -34,9 +34,9 @@ public class OrderClientController {
 		return json;				
 	}
 	
-	@RequestMapping(path = "/orderClient/table/{tableId}", method = RequestMethod.GET)
-	public @ResponseBody List<OrderClient> listOrderByTable(@PathVariable String tableId) {
-		return orderClientDao.listOrderByTable(Long.valueOf(tableId));
+	@RequestMapping(path = "/orderClient/table/{tableId}/shift/{shiftId}", method = RequestMethod.GET)
+	public @ResponseBody List<OrderClient> listOrderByTable(@PathVariable String tableId, @PathVariable String shiftId) {
+		return orderClientDao.listOrderByTable(Long.valueOf(tableId), Long.valueOf(shiftId));
 	}
 	
 	

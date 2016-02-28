@@ -33,8 +33,8 @@ public class OrderClientDao {
 		return OrderClient;
 	}
 
-	public List<OrderClient> listOrderByTable(Long tableId) {
-		List<OrderClient> myList = orderClientRepository.listOrderByTable(tableId);
+	public List<OrderClient> listOrderByTable(Long tableId, Long shiftId) {
+		List<OrderClient> myList = orderClientRepository.listOrderByTable(tableId, shiftId);
 		return myList;
 	}
 

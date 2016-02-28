@@ -14,9 +14,7 @@ public class ShiftDao{
 	@Autowired
 	ShiftRepository shiftRepository;
 
-	public Shift create(String name) {
-		Shift shift = new Shift();
-		shift.setName(name);
+	public Shift create(Shift shift) {
 		shiftRepository.save(shift);
 		return shift;
 
@@ -34,6 +32,16 @@ public class ShiftDao{
 	public Shift save(Shift shift){
 		shiftRepository.save(shift);
 		return shift;
+	}
+
+	public void activate(Long shiftId) {
+		shiftRepository.desactivateAll();
+		shiftRepository.activate(shiftId);
+		
+	}
+
+	public Shift getActive() {
+		return shiftRepository.getActive();
 	}
 
 	

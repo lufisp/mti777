@@ -14,6 +14,8 @@ public class Shift {
 	private Long idshift;
 
 	private String name;
+	
+	private Boolean active;
 
 	public Long getIdshift() {
 		return idshift;
@@ -30,5 +32,15 @@ public class Shift {
 	public void setName(String name) {
 		this.name = name;
 	}
+
+	public Boolean getActive() {
+		return active;
+	}
+
+	public void setActive(Boolean active) {
+		this.active = active;
+	}
+	
+	
 
 }

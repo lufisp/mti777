@@ -42,8 +42,8 @@ public class TableDao {
 		return table;
 	}
 
-	public String getTotal(Long tableId) {
-		return tableRepository.getTotal(tableId);
+	public String getTotal(Long tableId, Long shiftId) {
+		return tableRepository.getTotal(tableId,shiftId);
 	}
 
 	

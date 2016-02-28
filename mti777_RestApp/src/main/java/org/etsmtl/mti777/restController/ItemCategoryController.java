@@ -2,9 +2,11 @@ package org.etsmtl.mti777.restController;
 
 import java.util.List;
 
+import org.etsmtl.mti777.auxiliary.TreeNode;
 import org.etsmtl.mti777.dao.ItemCategoryDao;
 import org.etsmtl.mti777.model.ItemCategory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,6 +26,15 @@ public class ItemCategoryController {
 		return itemCategoryDao.list();
 	}
 	
+	
+	@RequestMapping(path = "/itemCategory/getTreeJson/", 
+			method = RequestMethod.GET,
+			produces = MediaType.APPLICATION_JSON_VALUE)
+	public @ResponseBody String  getTree() {
+		List<ItemCategory> listCat = itemCategoryDao.list();
+		return TreeNode.getTreeJson(listCat);
+	}
+	
 	/*
 	@RequestMapping(path = "/itemCategory/", method = RequestMethod.POST)
 	public @ResponseBody ItemCategory create(@RequestBody String jsonString) throws JsonProcessingException, IOException {
@@ -40,6 +51,7 @@ public class ItemCategoryController {
 		return itemCategoryDao.create(jsonName.asText(),id);
 	}
 	*/
+	
 	@RequestMapping(path = "/itemCategory/", method = RequestMethod.POST)
 	public @ResponseBody ItemCategory create(@RequestBody ItemCategory itemCat) {		
 		return itemCategoryDao.create(itemCat);

@@ -9,8 +9,9 @@ import org.springframework.data.repository.query.Param;
 public interface TableRepository extends BaseRepository<TableRoom,Long> {
 
 	@Query(   " SELECT SUM(orderItems.quantity * orderItems.itemMenuDet.prix)"
-			+ " FROM OrderItems orderItems WHERE orderItems.orderClient.tableRoom.idtable = :tableId")
-	String getTotal(@Param("tableId") Long tableId);
+			+ " FROM OrderItems orderItems WHERE orderItems.orderClient.tableRoom.idtable = :tableId "
+			+ "and orderItems.orderClient.shift.idshift = :shiftId")
+	String getTotal(@Param("tableId") Long tableId, @Param("shiftId") Long shiftId);
 		
 
 }

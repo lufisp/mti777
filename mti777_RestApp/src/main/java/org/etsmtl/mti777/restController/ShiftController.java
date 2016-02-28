@@ -25,9 +25,14 @@ public class ShiftController {
     	return shiftDao.list();
     }
     
-    @RequestMapping(path="/shift/{name}",method=RequestMethod.POST)
-    public @ResponseBody Shift create(@PathVariable String name){    	
-    	return shiftDao.create(name);
+    @RequestMapping(path="/shift/active",method=RequestMethod.GET)
+    public @ResponseBody Shift getActive(){
+    	return shiftDao.getActive();
+    }
+    
+    @RequestMapping(path="/shift/",method=RequestMethod.POST)
+    public @ResponseBody Shift create(@RequestBody Shift shift){    	
+    	return shiftDao.create(shift);
     	
     }
     
@@ -37,10 +42,12 @@ public class ShiftController {
     	
     }
     
-    @RequestMapping(value="/shift/", method=RequestMethod.PUT)
-    public void update(@RequestBody Shift pt) {
-        shiftDao.save(pt);
+    @RequestMapping(value="/shift/activate/{id}", method=RequestMethod.PUT)
+    public void update(@RequestBody Shift shift) {
+        shiftDao.activate(shift.getIdshift());
     }
+    
+    
     
 
 }
