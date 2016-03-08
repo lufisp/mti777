@@ -26,7 +26,12 @@ public class ItemMenuController {
 	public @ResponseBody List<ItemMenu> list() {
 		return itemMenuDao.list();
 	}
-	
+
+	@RequestMapping(path = "/itemMenu/itemCategory/{categoryId}", method = RequestMethod.GET)
+	public @ResponseBody List<ItemMenu> listByCategory(@PathVariable String categoryId) {
+		return itemMenuDao.listByCategory(Long.valueOf(categoryId));
+	}
+
 	
 	@RequestMapping(path = "/itemMenu/", method = RequestMethod.POST)
 	public @ResponseBody ItemMenu create(@RequestBody ItemMenu itemMenu) {		
@@ -40,7 +45,7 @@ public class ItemMenuController {
 
 	}
 
-	@RequestMapping(value = "/itemMenu/", method = RequestMethod.PUT)
+	@RequestMapping(value = "/itemMenu/{id}", method = RequestMethod.PUT)
 	public void update(@RequestBody ItemMenu itemMenu) {
 		itemMenuDao.save(itemMenu);
 	}

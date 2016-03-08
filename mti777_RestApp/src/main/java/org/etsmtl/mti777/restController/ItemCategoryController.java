@@ -64,9 +64,9 @@ public class ItemCategoryController {
 
 	}
 
-	@RequestMapping(value = "/itemCategory/", method = RequestMethod.PUT)
+	@RequestMapping(value = "/itemCategory/{id}", method = RequestMethod.PUT)
 	public void update(@RequestBody ItemCategory itemCategory) {
-		itemCategoryDao.save(itemCategory);
+		itemCategoryDao.update(itemCategory);
 	}
 
 }

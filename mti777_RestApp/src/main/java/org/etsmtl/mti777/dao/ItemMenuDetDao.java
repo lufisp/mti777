@@ -1,5 +1,6 @@
 
 package org.etsmtl.mti777.dao;
+import java.util.Calendar;
 import java.util.List;
 
 import org.etsmtl.mti777.model.ItemMenuDet;
@@ -15,6 +16,7 @@ public class ItemMenuDetDao {
 	ItemMenuDetRepository iMenuDetRepository;
 	
 	public ItemMenuDet create(ItemMenuDet itemMenuDet) {
+		itemMenuDet.setCreationDate(Calendar.getInstance().getTime());
 		iMenuDetRepository.save(itemMenuDet);
 		return itemMenuDet;
 	}	
@@ -35,6 +37,11 @@ public class ItemMenuDetDao {
 
 	public List<ItemMenuDet> listLastUpdated() {
 		List<ItemMenuDet> myList = iMenuDetRepository.listLastUpdated();
+		return myList;
+	}
+
+	public List<ItemMenuDet> listLastUpdatedByItemMenu(Long idItemMenu) {
+		List<ItemMenuDet> myList = iMenuDetRepository.listLastUpdatedByItemMenu(idItemMenu);
 		return myList;
 	}
 

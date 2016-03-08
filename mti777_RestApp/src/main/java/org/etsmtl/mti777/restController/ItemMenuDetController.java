@@ -32,6 +32,11 @@ public class ItemMenuDetController {
 		return itemMenuDetDao.listLastUpdated();
 	}
 	
+	@RequestMapping(path = "/itemMenuDet/lastUpdated/{idItemMenu}", method = RequestMethod.GET)
+	public @ResponseBody List<ItemMenuDet> listLastUpdatedByItemMenu(@PathVariable String idItemMenu) {
+		return itemMenuDetDao.listLastUpdatedByItemMenu(Long.valueOf(idItemMenu));
+	}
+	
 	
 	@RequestMapping(path = "/itemMenuDet/", method = RequestMethod.POST)
 	public @ResponseBody ItemMenuDet create(@RequestBody ItemMenuDet itemMenuDet) {		

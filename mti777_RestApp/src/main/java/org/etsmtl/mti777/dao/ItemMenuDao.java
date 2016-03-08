@@ -34,4 +34,8 @@ public class ItemMenuDao {
 		return itemMenu;
 	}
 
+	public List<ItemMenu> listByCategory(Long categoryId) {
+		return iMenuRepository.listByCategory(categoryId);		
+	}
+
 }

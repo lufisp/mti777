@@ -34,7 +34,7 @@ public class ItemCategoryDao {
 	}
 	
 	public ItemCategory create(ItemCategory itemCategory) {
-		iCatRepository.save(itemCategory);
+		iCatRepository.save(itemCategory.getName(),itemCategory.getRootCategory().getIditemCategory());
 		return itemCategory;
 	}
 
@@ -53,6 +53,11 @@ public class ItemCategoryDao {
 	public ItemCategory save(ItemCategory itemCategory) {
 		iCatRepository.save(itemCategory);
 		return itemCategory;
+	}
+
+	public void update(ItemCategory itemCategory) {
+		iCatRepository.update(itemCategory.getName(),itemCategory.getIditemCategory());
+		
 	}
 
 }
