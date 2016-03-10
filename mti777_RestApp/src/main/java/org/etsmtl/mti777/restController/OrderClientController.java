@@ -57,5 +57,10 @@ public class OrderClientController {
 	public void update(@RequestBody OrderClient orderClient) {
 		orderClientDao.save(orderClient);
 	}
+	
+	@RequestMapping(value = "/orderClient/closeOrder/{idOrder}", method = RequestMethod.PUT)
+	public void closeOrder(@PathVariable String idOrder) {
+		orderClientDao.closeOrder(idOrder);
+	}
 
 }

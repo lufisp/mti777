@@ -1,5 +1,6 @@
 package org.etsmtl.mti777.restController;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import org.etsmtl.mti777.dao.PaymentDao;
@@ -28,6 +29,11 @@ public class PaymentController {
 	@RequestMapping(path = "/payment/orderClient/{orderId}", method = RequestMethod.GET)
 	public @ResponseBody List<Payment> listOrderByOrderClient(@PathVariable String orderId) {
 		return paymentDao.listPaymentByOrderClient(Long.valueOf(orderId));
+	}
+	
+	@RequestMapping(path = "/payment/orderClient/getTotal/{orderId}", method = RequestMethod.GET)
+	public @ResponseBody BigDecimal paymentTotalByOrderClient(@PathVariable String orderId) {
+		return paymentDao.paymentTotaltByOrderClient(Long.valueOf(orderId));
 	}
 	
 	

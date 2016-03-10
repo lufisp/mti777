@@ -42,4 +42,9 @@ public class OrderClientDao {
 		return orderClientRepository.getTotal(id);
 	}
 
+	public void closeOrder(String idOrder) {
+		orderClientRepository.closeOrder(idOrder);
+		
+	}
+
 }

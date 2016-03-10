@@ -1,5 +1,6 @@
 
 package org.etsmtl.mti777.dao;
+import java.math.BigDecimal;
 import java.util.List;
 
 import org.etsmtl.mti777.model.Payment;
@@ -35,6 +36,10 @@ public class PaymentDao {
 
 	public List<Payment> listPaymentByOrderClient(Long orderId) {
 		return paymentRepository.listPaymentByOrderClient(orderId);
+	}
+
+	public BigDecimal paymentTotaltByOrderClient(Long orderId) {
+		return paymentRepository.paymentTotalByOrderClient(orderId);
 	}
 
 }
